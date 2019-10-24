@@ -197,5 +197,7 @@ teh_agg=pd.concat([gdata[["monsoon","premon","pomrb","pomkh"]].mean(),gdata[["mo
 
 print(teh_agg)
 
+teh_numpy = teh_agg.to_numpy()
 
+print (teh_numpy)
 
