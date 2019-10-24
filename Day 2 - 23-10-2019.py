@@ -193,7 +193,9 @@ gdata=data.groupby(["teh_name","year_obs"])
 
 # Getting Mean using monsoon column
 
-monsoon_mean = gdata[["monsoon","premon","pomrb","pomkh"]].mean(),gdata[["monsoon","premon","pomrb","pomkh"]].count()
-print(monsoon_mean)
+teh_agg=pd.concat([gdata[["monsoon","premon","pomrb","pomkh"]].mean(),gdata[["monsoon"]].count()],axis=1)
+
+print(teh_agg)
+
 
 
