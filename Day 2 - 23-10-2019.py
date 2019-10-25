@@ -232,3 +232,27 @@ print(d)
 
 # -----------------------------------------------------------------------------------------------------------------------------
 
+# Section 5 - Data Analysis using Numpy Array and Sklearn 
+
+# The Below code will convert the dataframe into numpy array
+
+import numpy as np
+import sklearn
+
+# converting a pandas dataframe into numpy array
+
+monsoon_array = monsoon_mean.to_numpy()
+
+# Displaying the data in a dataframe in a decimal data using float datatype
+
+monsoon_array = np.array(monsoon_array, dtype=np.float)
+monsoon_array
+
+
+# Getting no. of rows and columns of an array
+
+monsoon_array.shape
+
+
+# printing data as a integer using astype() fucntion
+monsoon_array.astype(int)
