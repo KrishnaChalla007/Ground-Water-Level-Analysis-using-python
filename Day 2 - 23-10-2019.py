@@ -191,13 +191,44 @@ gdata=data.groupby(["teh_name","year_obs"])
 
 # select teh_name,year_obs,count(*),avg(monsoon) from ts_wl_data1 group by teh_name,year_obs; - Corresponding SQL query
 
-# Getting Mean using monsoon column
+# Getting Average using mean function
 
-teh_agg=pd.concat([gdata[["monsoon","premon","pomrb","pomkh"]].mean(),gdata[["monsoon"]].count()],axis=1)
+monsoon_mean = gdata[["monsoon","premon","pomrb","pomkh"]].mean()
+print(monsoon_mean)                     
 
-print(teh_agg)
+# Getting Count using count function
 
-teh_agg_array = teh_agg.to_numpy()
+monsoon_count = gdata[["monsoon"]].count()
 
-print (teh_agg_array)
+# Renaming the column name of the existing Dataframe 
+
+monsoon_count.rename(columns = {"monsoon":"monsoon_cnt"}, inplace = True)
+
+print(monsoon_count)
+
+# Getting Average and Count with a single statement 
+
+# teh_agg=pd.concat([gdata[["monsoon","premon","pomrb","pomkh"]].mean(),gdata[["monsoon"]].count()],axis=1)
+
+# Concatenating 2 dataframes into one data
+
+teh_agg = pd.concat([monsoon_mean, monsoon_count], axis=1)
+
+print (teh_agg)
+
+
+# The Below Code will subtract 2 columns and create a new column with the result and add that column to the existing table
+
+# teh_agg["q1-q3_diff"] = teh_agg["premon"] - teh_agg["pomkh"]
+
+# print(teh_agg)
+
+
+# The Below Code will subtract 2 columns of a dataframe, we can assign a variable to get the data seperately
+
+d = teh_agg["premon"] - teh_agg["pomkh"]
+
+print(d)
+
+# -----------------------------------------------------------------------------------------------------------------------------
 
