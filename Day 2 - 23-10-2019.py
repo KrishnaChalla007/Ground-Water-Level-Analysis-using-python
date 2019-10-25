@@ -252,7 +252,3 @@ monsoon_array
 # Getting no. of rows and columns of an array
 
 monsoon_array.shape
-
-
-# printing data as a integer using astype() fucntion
-monsoon_array.astype(int)
